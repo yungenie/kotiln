@@ -1,4 +1,4 @@
-package com.yunjin.lec09
+package com.yunjin.lec9
 
 class KotilnPerson constructor(
     name: String,
