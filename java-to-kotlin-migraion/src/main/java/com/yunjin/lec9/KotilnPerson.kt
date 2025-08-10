@@ -22,5 +22,10 @@ class KotilnPerson constructor(
         }
     }
 
-    constructor(name: String) : this(name, 0) // 부생성자(secondary constructor
+    constructor(name: String) : this(name, 0) {// 부생성자(secondary constructor
+        print("첫번째 부생성자")
+    }
+    constructor(): this("new 사람") {
+        print("두번째 부생성자")
+    }
 }
