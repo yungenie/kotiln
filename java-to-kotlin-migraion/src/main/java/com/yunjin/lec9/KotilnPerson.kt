@@ -28,4 +28,7 @@ class KotilnPerson constructor(
     constructor(): this("new 사람") {
         print("두번째 부생성자")
     }
+
+    val isAdult: Boolean
+        get() = this.age >= 2
 }
