@@ -33,10 +33,13 @@ class KotilnPerson constructor(
     }
 
     val isAdult:Boolean
-        get() = age >= 20
+        get() = this.age >= 20
 
     var memo = memo
         set(value) {
             field = value
         }
+
+    val isAdult: Boolean
+        get() = this.age >= 2
 }
