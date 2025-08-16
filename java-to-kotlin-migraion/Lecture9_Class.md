@@ -215,7 +215,10 @@ class KotilnPerson constructor( // 주생성자(primary constructor)
 >
 > 다른 타입이 해당 객체로 converting을 해야할 때는 부생성자를 사용하기보다 정적 팩토리 메소드를 추천한다..!!!!
 
-## 커스텀 getter, setter
+## 3. 커스텀 getter, setter
+- custom getter는 클래스에 프로퍼티가 있는 것 처럼 직접 getter를 정의할 수 있다.
+- 2가지 문법이 존재함. 변수 초기화처럼 하거나 중괄호 + return한 다음에 Expresion 넣어줄 수도 있다.
+
 
 ### 커스텀 getter
 - 직접 정의한 getter를 활용한 프로퍼티처럼 보이게 할 수 있음.
@@ -265,38 +268,4 @@ class KotilnPerson (
 - value는 외부에서 들어온 파라미터고, field는 자기 자신을 뜻함.
 
 > 사실은 setter 자체를 지양하기 때문에 custom setter도 잘 안쓴다..!
-## 3. 커스텀 getter, setter
-- custom getter는 클래스에 프로퍼티가 있는 것 처럼 직접 getter를 정의할 수 있다.
-- 2가지 문법이 존재함. 변수 초기화처럼 하거나 중괄호 + return한 다음에 Expresion 넣어줄 수도 있다.
 
-```kotlin
-
-fun main() {
-    val javaPeron = JavaPerson("곽윤진")
-    print(javaPeron.name)
-}
-class KotilnPerson constructor( // 주생성자(primary constructor)
-    name: String,
-    age: Int
-) {
-    val name: String = name
-    val age: Int = age
-
-    constructor(name: String) : this(name, 0) {// 부생성자(secondary constructor
-        print("첫번째 부생성자")
-    }
-    constructor(): this("new 사람") {
-        print("두번째 부생성자")
-    }
-      
-    val isAdult: Boolean
-      get() = this.age >= 2 
-
-    val isAdult2: Boolean
-        get() {
-            return this.age >= 2
-        }
-}   
-```
-
-> 객체의 속성인 경우라면, custom getter 사용하고 그렇지 않으면 메소드로 표현하는 것이 좋다함.
