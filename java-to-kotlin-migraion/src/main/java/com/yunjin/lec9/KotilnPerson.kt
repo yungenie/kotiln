@@ -11,9 +11,12 @@ fun main() {
 
 class KotilnPerson constructor(
     name: String,
-    age: Int
+    age: Int,
+    memo: String? = null
 ) {
     val name: String = name
+        get() = field.uppercase()
+
     var age: Int = age
 
     init {
@@ -28,4 +31,12 @@ class KotilnPerson constructor(
     constructor(): this("new 사람") {
         print("두번째 부생성자")
     }
+
+    val isAdult:Boolean
+        get() = age >= 20
+
+    var memo = memo
+        set(value) {
+            field = value
+        }
 }

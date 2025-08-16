@@ -207,9 +207,60 @@ class KotilnPerson constructor( // 주생성자(primary constructor)
 - body를 가질 수 있으니, block을 통해 코드를 집어넣을 수 있음.
 - 기본 생성자를 통해 name 파라미터를 받는 생성자 호출, 해당 생성자는 주 생성자를 호출할 수 있다..!!
 
-### init과 부생성자 호출 순서
+## init과 부생성자 호출 순서
 1. init 초기화 블럭
 2. 부성생자
 
 > 그러나..! 코틀린에서는 부생성자보다는 default parameter를 사용하는 것을 권장합니다..! (주생성자 이용 권장)
 > 다른 타입이 해당 객체로 converting을 해야할 때는 부생성자를 사용하기보다 정적 팩토리 메소드를 추천한다..!!!!
+
+## 커스텀 getter, setter
+
+### 커스텀 getter
+- 직접 정의한 getter를 활용한 프로퍼티처럼 보이게 할 수 있음.
+- 함수 대신에 만들 수 있음.
+- 2가지 문법이 있음.
+```kotlin
+// return 하나의 expression 사용
+val isAdult:Boolean 
+    get() {
+        return age >= 20
+    }
+
+// get() = 으로 표현
+val isAdult:Boolean 
+    get() = age >= 20
+```
+- age >= 20는 하나의 expression으로 표현할 수 있다.
+- 그러므로 get() = 으로 쓸 수 있다..!
+
+> 객체의 속성이라면, custom getter를 사용하고 그렇지 않다면 함수화를 하자.!!!
+> custom getter를 사용하면 자기 자신을 변형해줄 수 있다..?? -> backing field 사용
+
+
+## backing field
+
+```kotlin
+class KotilnPerson (
+    name: String
+) {
+    val name: String = name // 주생성자 필드를 받아서 재정의한다.
+        get() = field.uppercase() 
+        // get() = name.uppercase()
+    
+```
+- 무한루프를 막기 위한 예약어, 자기 자신을 가리킨다. 
+- 주생성자 필드 말고 재정의한 필드를 가르킴.
+- 그래서 이러한 필드를 보이지 않는 필드다 하여 backing field라고 부름.
+- custom getter에서는 backing field를 쓰는 경우는 드물다..!!
+
+### custom setter
+```kotlin
+    var memo = memo
+        set(value) {
+            field = value
+        }
+```
+- value는 외부에서 들어온 파라미터고, field는 자기 자신을 뜻함.
+
+> 사실은 setter 자체를 지양하기 때문에 custom setter도 잘 안쓴다..!
