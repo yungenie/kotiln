@@ -48,7 +48,7 @@ str.length // 불가능
 ```
 
 
-### Elvis
+### Elvis (엘비스)
 - null인 경우에만 호출되는 연산자가 있다. ?:
 - early return 에도 사용할 수 있다.
 
