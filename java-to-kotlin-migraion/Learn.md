@@ -7,7 +7,6 @@ Kotlin: Cannot access '@Schema(...) field xxxx!': it is private in 'com/X/X/adap
 ```
 - 비즈니스 로직에서 검증을 하는 부분에 특정 필드값이 해당하는 상태값에 맞는지 확인 로직인데, 필드 참조가 안됨...
 - 이것 저것 실험해보다가 해당 필드 get해오는 custom getter 만들어서 해결함... 
-- 근데 또 다른 문제는 커스텀 BusinessException으로 throw 할 때, 커스텀 에러 코드를 인자로 넘겨야하는데, 에러 코드가 enums 이라서 이것도 참조 안됨.. -> 이건 방법 찾아야함..
 
 
 출처: https://ljg960730.tistory.com/193 [MINIMALISM_JK:티스토리]
