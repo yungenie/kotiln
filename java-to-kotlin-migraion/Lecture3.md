@@ -13,7 +13,7 @@
 
 ## 3. kotlin의 3가지 특이한 타입
 - Any, Unit, Nothing
-- 코틀린의 Any는 Java의 Object와 같은 최상위 타입이다.
+- **코틀린의 Any는 Java의 Object와 같은 최상위 타입**이다.
 - Unit은 Java의 void와 동일한다. 
 - Nothing은 정상적으로 끝나지 않는 함수의 반환을 의미한다!
 
