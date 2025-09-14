@@ -32,9 +32,6 @@ class KotilnPerson constructor(
         print("두번째 부생성자")
     }
 
-    val isAdult:Boolean
-        get() = this.age >= 20
-
     var memo = memo
         set(value) {
             field = value
